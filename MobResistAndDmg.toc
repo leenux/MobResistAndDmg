@@ -1,0 +1,8 @@
+## Interface: 11200
+## Title: MobResistAndDmg
+## Version: 1.2
+## Author: leenux
+## SavedVariables: MOBRESIST_CONFIG
+## Notes: Displays the resistances, damage and speed of your selected target.
+MobResist.xml
+MobResistMenu.xml
