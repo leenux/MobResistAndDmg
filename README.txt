@@ -1,6 +1,10 @@
-MobResist by Armilus
+MobResistAndDmg by leenux.
 
-This addon will display the armor and resistances of your target. 
+MobResistAndDmg base on MobResist of Armilus.
+
+Thank Armilus.
+
+This addon will display the armor, resistances, melee damager and melee speed of your target. 
 
 "/mr show" and "/mr hide" to show/hide the UI.
 "/mr report" to write the mob resistances to chat
