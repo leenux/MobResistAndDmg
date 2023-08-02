@@ -97,11 +97,7 @@ function Update()
 		MobResistDisplay:Show();
 		--NameText:SetText(GetTargetName());
 
-		local L,H=UnitDamage("target");
-		local S=UnitAttackSpeed("target");
-
-		--ArmorText:SetText(GetArmor());
-		ArmorText:SetText(GetArmor()..string.format(" [%.0f - %.0f]",L,H)..string.format(" [%.2f]",S));
+		ArmorText:SetText(GetArmorAndDmg());
 		ArmorText:SetTextColor(0.5, 0.5, 0.5);
 		HolyText:SetText(GetHoly());
 		HolyText:SetTextColor(1, 1, 0);
@@ -136,12 +132,15 @@ function GetTargetName()
 	return UnitName(MR_Target);
 end
 
-function GetArmor()
+function GetArmorAndDmg()
 	if TargetCheck("target") ~= true then
 		return "";
 	end
-	
-	return UnitResistance(MR_Target, 0);
+
+	local L,H=UnitDamage("target");
+	local S=UnitAttackSpeed("target");
+
+	return UnitResistance(MR_Target, 0)..string.format(" [%.0f - %.0f]",L,H)..string.format(" [%.2f]",S);
 end
 
 function GetHoly()
@@ -197,7 +196,7 @@ function Report(channel)
 		return;
 	end
 	
-	local message = "("..GetTargetName().."): "..GetArmor().."arm, "..GetHoly().."hol, "..GetFire().."fir, "..GetNature().."nat, "..GetFrost().."fro, "..GetShadow().."sha, "..GetArcane().."arc.";
+	local message = "("..GetTargetName().."): "..GetArmor().."arm and dmg, "..GetHoly().."hol, "..GetFire().."fir, "..GetNature().."nat, "..GetFrost().."fro, "..GetShadow().."sha, "..GetArcane().."arc.";
 
 	if channel == "s" or channel == "S" or channel == "say" then
 		SendChatMessage(message, "SAY", GetDefaultLanguage("player"));
